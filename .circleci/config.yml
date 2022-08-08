@@ -1,24 +1,28 @@
 version: 2.1
+workflows:
+  build:
+    jobs:
+      - build:
+          context:
+            - DOCKERHUB_USERNAME
 
 jobs:
   build:
-    machine:
-      image: ubuntu-2204:2022.04.2
+    environment:
+      IMAGE_NAME: mubarakbunza/udagram-api-feed
+    docker:
+      - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
-      # start proprietary DB using private Docker image
-      # with credentials stored in the UI
-      # - run: |
-      #     echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-      #     docker run -d --name db company/proprietary-db:1.2.3
-
-      - 
-      # build the application image
-      - run: |
-          docker build -t udagram-api-feed ../udagram-api-feed
-
-      # deploy the image
-      - run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          docker push mubarakbunza/udagram-api-feed:v1
-
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: Docker Build
+          command: |
+            docker build -t udagram-api-feed ./udagram-api-feed
+            
+      - run:
+          name: Docker Push
+          command: |
+              echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+              docker push mubarakbunza/udagram-api-feed:v1
