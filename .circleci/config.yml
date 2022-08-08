@@ -1,10 +1,4 @@
 version: 2.1
-workflows:
-  build:
-    jobs:
-      - build:
-          context:
-            - DOCKER_USERNAME
 
 jobs:
   build:
