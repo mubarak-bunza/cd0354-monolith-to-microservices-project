@@ -14,6 +14,7 @@ jobs:
           name: Docker Build
           command: |
             docker build -t udagram-api-feed ./udagram-api-feed
+            docker tag udagram-api-feed mubarakbunza/udagram-api-feed:v1
             
       - run:
           name: Docker Push
