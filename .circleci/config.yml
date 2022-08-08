@@ -15,7 +15,7 @@ jobs:
       - 
       # build the application image
       - run: |
-          docker build -t udagram-api-feed ./udagram-api-feed
+          docker build -t udagram-api-feed ../udagram-api-feed
 
       # deploy the image
       - run: |
