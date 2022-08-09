@@ -16,11 +16,17 @@ spec:
       - name: backend-user
         image: mubarakbunza/udagram-api-user:v1
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: env-secret
+        envFrom:
+        - configMapRef:
+            name: env-configmap
         resources:
           requests:
-            cpu: "200m"
-            memory: "32Mi"
+            cpu: "300m"
+            memory: "120Mi"
           limits:
-            cpu: "250m"
-            memory: "64Mi"
+            cpu: "600m"
+            memory: "240Mi"

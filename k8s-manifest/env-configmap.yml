@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: env-secret
+  name: env-configmap
 data:
-  POSTGRES_USERNAME: postgres
-  POSTGRES_PASSWORD: postgres
+  # POSTGRES_USERNAME: postgres
+  # POSTGRES_PASSWORD: postgres
   POSTGRES_HOST: mydb.cuw6knvxjtl7.us-east-2.rds.amazonaws.com
   POSTGRES_DB: postgres
   AWS_BUCKET: my-porject3-s3
