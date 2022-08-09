@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-feed
+spec:
+  selector:
+    matchLabels:
+      app: backend-feed
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: backend-feed
+    spec:
+      containers:
+      - name: backend-feed
+        image: mubarakbunza/udagram-api-feed:v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "32Mi"
+          limits:
+            cpu: "250m"
+            memory: "64Mi"
