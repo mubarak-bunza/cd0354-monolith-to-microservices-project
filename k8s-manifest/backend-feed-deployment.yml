@@ -18,6 +18,16 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: aws_access_key_id
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret
+              key: aws_access_key_id
+        - name: aws_secret_access_key
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret
+              key: aws_secret_access_key
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
@@ -58,10 +68,13 @@ spec:
             configMapKeyRef:
               name: env-configmap
               key: JWT_SECRET
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: env-configmap
+              key: URL
         resources:
           requests:
-            cpu: "300m"
-            memory: "120Mi"
+            cpu: "200m"
           limits:
-            cpu: "600m"
-            memory: "240Mi"
+            cpu: "300m"
