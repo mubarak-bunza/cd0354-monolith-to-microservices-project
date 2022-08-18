@@ -17,7 +17,7 @@ jobs:
             docker build -t reverseproxy ./udagram-reverseproxy
             docker tag udagram-api-feed mubarakbunza/udagram-api-feed:v4
             docker tag udagram-api-user mubarakbunza/udagram-api-user:v4
-            docker tag udagram-frontend mubarakbunza/udagram-frontend:v4
+            docker tag udagram-frontend mubarakbunza/udagram-frontend:v5
             docker tag reverseproxy mubarakbunza/reverseproxy:v4
             
       - run:
@@ -26,5 +26,5 @@ jobs:
               echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
               docker push mubarakbunza/udagram-api-feed:v4
               docker push mubarakbunza/udagram-api-user:v4
-              docker push mubarakbunza/udagram-frontend:v4
+              docker push mubarakbunza/udagram-frontend:v5
               docker push mubarakbunza/reverseproxy:v4
