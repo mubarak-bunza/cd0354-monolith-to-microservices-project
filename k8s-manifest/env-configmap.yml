@@ -5,10 +5,10 @@ metadata:
 data:
   # POSTGRES_USERNAME: postgres
   # POSTGRES_PASSWORD: postgres
-  POSTGRES_HOST: mydb.cuw6knvxjtl7.us-east-2.rds.amazonaws.com
+  POSTGRES_HOST: postgres.crwrzhnx1ugs.us-east-2.rds.amazonaws.com
   POSTGRES_DB: postgres
-  AWS_BUCKET: my-porject3-s3
+  AWS_BUCKET: my-project3
   AWS_REGION: us-east-1
-  AWS_PROFILE: alx
+  AWS_PROFILE: deca-test
   JWT_SECRET: testing
   URL: http://localhost:8100
