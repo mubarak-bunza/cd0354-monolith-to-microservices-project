@@ -3,11 +3,9 @@ kind: ConfigMap
 metadata:
   name: env-configmap
 data:
-  # POSTGRES_USERNAME: postgres
-  # POSTGRES_PASSWORD: postgres
-  POSTGRES_HOST: postgres.crwrzhnx1ugs.us-east-2.rds.amazonaws.com
+  POSTGRES_HOST: postres.cfxazmi7k1sk.us-east-1.rds.amazonaws.com
   POSTGRES_DB: postgres
-  AWS_BUCKET: my-project3
+  AWS_BUCKET: project3s3
   AWS_REGION: us-east-1
   AWS_PROFILE: deca-test
   JWT_SECRET: testing
